@@ -3,9 +3,9 @@ Maintainer Bryan Pearson
 
 ENV VERSION 7
 
-RUN apk update
-RUN apk upgrade
-
-RUN apk add openjdk"$VERSION"-jre-base
+RUN apk update && \
+    apk upgrade && \
+    apk add openjdk"$VERSION"-jre-base && \
+    rm -rf /var/cache/apk/*
 
 
