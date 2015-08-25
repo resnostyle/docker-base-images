@@ -1,11 +1,7 @@
 FROM gliderlabs/alpine:3.1
-Maintainer Bryan Pearson
+Maintainer Bryan Pearson <bwp.pearson@gmail.com>
 
 ENV VERSION 7
 
-RUN apk update
-RUN apk upgrade
-
-RUN apk add openjdk"$VERSION"-jre-base
-
-
+RUN apk update && \
+    apk add --update openjdk"$VERSION"-jre-base 
