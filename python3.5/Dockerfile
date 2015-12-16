@@ -15,7 +15,7 @@ ENV PYTHON_NUMBER 3
 # if this is called "PIP_VERSION", pip explodes with "ValueError: invalid truth value '<VERSION>'"
 ENV PYTHON_PIP_VERSION 7.1.2
 
-RUN yum groupinstall "Development tools"
+RUN yum groupinstall "Development tools" -y
 
 RUN set -x \
     && mkdir -p /usr/src/python \
