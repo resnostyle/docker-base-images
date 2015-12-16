@@ -15,6 +15,8 @@ ENV PYTHON_NUMBER 3
 # if this is called "PIP_VERSION", pip explodes with "ValueError: invalid truth value '<VERSION>'"
 ENV PYTHON_PIP_VERSION 7.1.2
 
+RUN yum groupinstall "Development tools"
+
 RUN set -x \
     && mkdir -p /usr/src/python \
     && curl -SL "https://www.python.org/ftp/python/${PYTHON_VERSION%%[a-z]*}/Python-$PYTHON_VERSION.tar.xz" -o python.tar.xz \
