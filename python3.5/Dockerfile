@@ -28,12 +28,14 @@ RUN set -x \
     && ./configure \
     && make -j$(nproc) && make altinstall \
     && ldconfig \
+    && 
     && pip$PIP_VERSION install --no-cache-dir --upgrade --ignore-installed pip==$PYTHON_PIP_VERSION \
     && find /usr/local \
         \( -type d -a -name test -o -name tests \) \
         -o \( -type f -a -name '*.pyc' -o -name '*.pyo' \) \
         -exec rm -rf '{}' + \
-    && rm -rf /usr/src/python
+    && rm -rf /usr/src/python \
+    && yum groupremove "Development tools" -y
 
 # make some useful symlinks that are expected to exist
 RUN cd /usr/local/bin \
